@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>ABU Sick Bay – Smart Vital Signs Management System</title>
+<link rel="icon" type="image/svg+xml" href="logoo.png"/>
 <style>
   :root {
     --green:#16a34a;--red:#dc2626;--orange:#ea580c;--blue:#2563eb;
@@ -260,16 +261,16 @@
       <div class="stat-unit">°C</div>
       <div class="stat-badge badge-ok" id="tempBadge">Normal</div>
     </div>
-    <div class="stat sbp">
-      <div class="stat-label">Systolic BP</div>
-      <div class="stat-value" id="sbpVal">--</div>
-      <div class="stat-unit">mmHg</div>
-      <div class="stat-badge badge-ok" id="sbpBadge">Normal</div>
+     <div class="stat temp">
+      <div class="stat-label">Room Temperature</div>
+      <div class="stat-value" id="tempVal">--</div>
+      <div class="stat-unit">°C</div>
+      <div class="stat-badge badge-ok" id="tempBadge">Normal</div>
     </div>
     <div class="stat dbp">
-      <div class="stat-label">Diastolic BP</div>
+      <div class="stat-label">SPO2</div>
       <div class="stat-value" id="dbpVal">--</div>
-      <div class="stat-unit">mmHg</div>
+      <div class="stat-unit">%</div>
       <div class="stat-badge badge-ok" id="dbpBadge">Normal</div>
     </div>
   </div>
