@@ -167,11 +167,7 @@
   .toast.show{transform:translateY(0);opacity:1}
   .empty-state{text-align:center;padding:40px 0;color:var(--sub)}
   .empty-state svg{opacity:.35;margin-bottom:12px}
-
-  /* ── SIMULATION LOG ── */
-  #simLog{background:#f8fafc!important;color:#334155!important;border-color:var(--border)!important}
-</style>
-</head>
+</style></head>
 <body>
 
 <!-- TOP BAR -->
@@ -392,7 +388,7 @@
     </div>
     <div class="gap-row mt">
       <button class="btn btn-success" onclick="registerStudent()">✅ Register Student</button>
-      <button class="btn" style="background:#1e2d45;color:var(--text)" onclick="clearRegForm()">Clear</button>
+      <button class="btn" style="background:#1e2d45;color:white" onclick="clearRegForm()">Clear</button>
     </div>
   </div>
 </div>
@@ -427,7 +423,7 @@
   <div class="section-header">
     <div><div class="section-title">Alert Notifications</div>
     <div class="sub-text">Critical vital signs events requiring immediate attention</div></div>
-    <button class="btn" style="background:#1e2d45;color:var(--text)" onclick="clearAlerts()">Clear All</button>
+    <button class="btn" style="background:#1e2d45;color:white" onclick="clearAlerts()">Clear All</button>
   </div>
   <div id="alertsList">
     <div class="empty-state">
@@ -479,8 +475,8 @@
       <div class="gap-row mt">
         <button class="btn btn-primary" onclick="injectSimReading()">📡 Send Reading</button>
         <button class="btn" style="background:#78350f;color:#fde68a" onclick="injectCritical()">🚨 Inject Critical</button>
-        <button class="btn" style="background:#1e2d45;color:var(--text)" onclick="startAutoSim()">▶ Auto Simulate</button>
-        <button class="btn" style="background:#1e2d45;color:var(--text)" onclick="stopAutoSim()">⏹ Stop</button>
+        <button class="btn" style="background:#1e2d45;color:white" onclick="startAutoSim()">▶ Auto Simulate</button>
+        <button class="btn" style="background:#1e2d45;color:white" onclick="stopAutoSim()">⏹ Stop</button>
       </div>
     </div>
     <div class="card">
