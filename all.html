@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,6 @@
   *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif}
   body{background:var(--bg);color:var(--text);min-height:100vh}
 
-  /* ── TOP BAR ── */
   .topbar{background:linear-gradient(90deg,#1e3a5f,#2563eb);
     border-bottom:1px solid #1d4ed8;padding:0 24px;
     display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100}
@@ -29,33 +27,30 @@
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   .time-display{font-size:.85rem;color:rgba(255,255,255,0.8)}
 
-  /* ── NAV TABS ── */
   .nav{display:flex;background:#ffffff;border-bottom:2px solid var(--border);
     padding:0 24px;gap:4px;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
   .tab{padding:12px 20px;cursor:pointer;font-size:.88rem;border-bottom:2px solid transparent;
-    color:var(--sub);transition:.2s;white-space:nowrap;margin-bottom:-2px}
+    color:var(--sub);transition:.2s;white-space:nowrap;margin-bottom:-2px;
+    display:flex;align-items:center;gap:7px}
   .tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
   .tab:hover{color:var(--text)}
+  .tab svg{width:16px;height:16px;stroke:currentColor;fill:none;flex-shrink:0}
 
-  /* ── LAYOUT ── */
   .container{max-width:1300px;margin:0 auto;padding:24px}
   .page{display:none}
   .page.active{display:block}
 
-  /* ── CARDS ── */
   .card{background:var(--card);border:1px solid var(--border);border-radius:12px;
     padding:20px;box-shadow:0 1px 4px rgba(0,0,0,0.07)}
   .card-title{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;
     color:var(--sub);margin-bottom:12px;font-weight:600}
 
-  /* ── GRID ── */
   .g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   @media(max-width:900px){.g4{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}}
   @media(max-width:600px){.g4,.g3,.g2{grid-template-columns:1fr}}
 
-  /* ── STAT CARDS ── */
   .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;
     padding:20px;position:relative;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.07)}
   .stat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
@@ -72,11 +67,9 @@
   .badge-warn{background:#fee2e2;color:#b91c1c}
   .badge-mid{background:#fef3c7;color:#b45309}
 
-  /* ── CHARTS ── */
   .chart-wrap{position:relative;height:180px;overflow:hidden}
   canvas.spark{position:absolute;inset:0;width:100%!important;height:100%!important}
 
-  /* ── TABLE ── */
   table{width:100%;border-collapse:collapse;font-size:.85rem}
   th{text-align:left;padding:10px 14px;font-size:.72rem;text-transform:uppercase;
     letter-spacing:.07em;color:var(--sub);border-bottom:2px solid var(--border);background:#f8fafc}
@@ -88,7 +81,6 @@
   .badge-critical{background:#fee2e2;color:#b91c1c}
   .badge-warning{background:#fef3c7;color:#b45309}
 
-  /* ── NOTIFICATION BANNER ── */
   #alertBanner{display:none;background:linear-gradient(90deg,#fef2f2,#fee2e2);
     border:1px solid #fca5a5;border-radius:10px;padding:14px 20px;margin-bottom:20px;
     display:flex;align-items:center;gap:14px}
@@ -100,7 +92,6 @@
   .dismiss-btn{background:#dc2626;border:none;color:#fff;padding:6px 14px;
     border-radius:6px;cursor:pointer;font-size:.8rem}
 
-  /* ── FORMS ── */
   .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   @media(max-width:600px){.form-grid{grid-template-columns:1fr}}
   .form-group{display:flex;flex-direction:column;gap:6px}
@@ -114,6 +105,7 @@
   .form-group select option{background:#ffffff;color:var(--text)}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;
     border-radius:8px;border:none;cursor:pointer;font-size:.88rem;font-weight:600;transition:.2s}
+  .btn svg{width:16px;height:16px;stroke:currentColor;fill:none;flex-shrink:0}
   .btn-primary{background:var(--accent);color:#fff}
   .btn-primary:hover{background:#1d4ed8}
   .btn-success{background:#16a34a;color:#fff}
@@ -123,7 +115,6 @@
   .section-title{font-size:1.05rem;font-weight:700;color:var(--text)}
   .sub-text{font-size:.8rem;color:var(--sub);margin-top:4px}
 
-  /* ── REALTIME LOG ── */
   #rtLog{height:240px;overflow-y:auto;background:#f8fafc;border-radius:8px;
     border:1px solid var(--border);padding:12px;font-family:'Consolas','Courier New',monospace;
     font-size:.78rem;color:#334155}
@@ -133,7 +124,6 @@
   #rtLog .log-crit{color:#b91c1c}
   #rtLog .log-info{color:#1d4ed8}
 
-  /* ── PATIENT CARD ── */
   .patient-card{background:var(--card2);border:1px solid var(--border);
     border-radius:10px;padding:16px;display:flex;gap:14px;align-items:flex-start}
   .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);
@@ -144,7 +134,6 @@
   .patient-info .id-tag{font-size:.72rem;background:#dbeafe;border:1px solid #bfdbfe;
     border-radius:6px;padding:2px 8px;display:inline-block;margin-top:4px;color:#1d4ed8}
 
-  /* ── PROGRESS BARS ── */
   .prog-row{margin-bottom:14px}
   .prog-label{display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:6px;color:var(--text)}
   .prog-label span:last-child{color:var(--sub)}
@@ -155,7 +144,6 @@
   .fill-orange{background:linear-gradient(90deg,#f97316,#fdba74)}
   .fill-blue{background:linear-gradient(90deg,#3b82f6,#93c5fd)}
 
-  /* ── MISC ── */
   .divider{height:1px;background:var(--border);margin:20px 0}
   .tag{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;
     font-size:.72rem;font-weight:600;background:#dbeafe;color:#1d4ed8}
@@ -173,9 +161,8 @@
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="logo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
-      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-    </svg>
+    <!-- Heart monitor / ECG icon -->
+    <img src="logoo.png" alt="Logo" style="width: 40px; height: 40px;">
     ABU Sick Bay — Smart Vital Signs Monitor
   </div>
   <div class="topbar-right">
@@ -186,26 +173,72 @@
 
 <!-- NAVIGATION -->
 <div class="nav">
-  <div class="tab active" onclick="showPage('dashboard',this)">📊 Dashboard</div>
-  <div class="tab" onclick="showPage('patients',this)">👥 Patients</div>
-  <div class="tab" onclick="showPage('register',this)">➕ Register Student</div>
-  <div class="tab" onclick="showPage('history',this)">📋 Vital History</div>
-  <div class="tab" onclick="showPage('alerts',this)">🔔 Alerts <span id="alertCount" style="background:#dc2626;color:#fff;border-radius:10px;padding:1px 6px;font-size:.7rem;margin-left:4px">0</span></div>
-  <div class="tab" onclick="showPage('simulation',this)">🔌 Simulation</div>
+  <!-- Dashboard -->
+  <div class="tab active" onclick="showPage('dashboard',this)">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+      <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+    </svg>
+    Dashboard
+  </div>
+  <!-- Patients -->
+  <div class="tab" onclick="showPage('patients',this)">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.85"/>
+    </svg>
+    Patients
+  </div>
+  <!-- Register Student -->
+  <div class="tab" onclick="showPage('register',this)">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="10" cy="8" r="3"/><path d="M4 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+      <line x1="20" y1="8" x2="20" y2="14"/><line x1="17" y1="11" x2="23" y2="11"/>
+    </svg>
+    Register Student
+  </div>
+  <!-- Vital History -->
+  <div class="tab" onclick="showPage('history',this)">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+      <line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/>
+    </svg>
+    Vital History
+  </div>
+  <!-- Alerts -->
+  <div class="tab" onclick="showPage('alerts',this)">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+    </svg>
+    Alerts <span id="alertCount" style="background:#dc2626;color:#fff;border-radius:10px;padding:1px 6px;font-size:.7rem;margin-left:2px">0</span>
+  </div>
+  <!-- Simulation -->
+  <div class="tab" onclick="showPage('simulation',this)">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+    </svg>
+    Simulation
+  </div>
 </div>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- ──────────────────────────────────────── -->
-<!--  PAGE: DASHBOARD                         -->
-<!-- ──────────────────────────────────────── -->
+<!-- DASHBOARD PAGE -->
 <div class="container">
 <div id="page-dashboard" class="page active">
 
   <!-- Critical Alert Banner -->
   <div id="alertBanner" class="hidden">
-    <div class="alert-icon">🚨</div>
+    <div class="alert-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
     <div class="alert-msg">
       <div class="alert-title" id="alertTitle">CRITICAL VITAL SIGNS DETECTED</div>
       <div class="alert-detail" id="alertDetail">Patient requires immediate attention</div>
@@ -227,21 +260,21 @@
       <div class="stat-unit">°C</div>
       <div class="stat-badge badge-ok" id="tempBadge">Normal</div>
     </div>
-    <div class="stat sbp">
-      <div class="stat-label">Systolic BP</div>
-      <div class="stat-value" id="sbpVal">--</div>
-      <div class="stat-unit">mmHg</div>
-      <div class="stat-badge badge-ok" id="sbpBadge">Normal</div>
+     <div class="stat temp">
+      <div class="stat-label">Room Temperature</div>
+      <div class="stat-value" id="tempVal">--</div>
+      <div class="stat-unit">°C</div>
+      <div class="stat-badge badge-ok" id="tempBadge">Normal</div>
     </div>
     <div class="stat dbp">
-      <div class="stat-label">Diastolic BP</div>
+      <div class="stat-label">SPO2</div>
       <div class="stat-value" id="dbpVal">--</div>
-      <div class="stat-unit">mmHg</div>
+      <div class="stat-unit">%</div>
       <div class="stat-badge badge-ok" id="dbpBadge">Normal</div>
     </div>
   </div>
 
-  <!-- Charts + Active Patients -->
+  <!-- Charts -->
   <div class="g2" style="margin-bottom:16px">
     <div class="card">
       <div class="card-title">Heart Rate Trend (last 20 readings)</div>
@@ -287,14 +320,17 @@
   </div>
 </div>
 
-<!-- ──────────────────────────────────────── -->
-<!--  PAGE: PATIENTS                          -->
-<!-- ──────────────────────────────────────── -->
+<!-- PATIENTS PAGE -->
 <div id="page-patients" class="page">
   <div class="section-header">
     <div><div class="section-title">Registered Students</div>
     <div class="sub-text">All students enrolled in the vital monitoring programme</div></div>
-    <button class="btn btn-primary" onclick="showPage('register',document.querySelector('.tab:nth-child(3))'))">+ Register New</button>
+    <button class="btn btn-primary" onclick="showPage('register',document.querySelectorAll('.tab')[2])">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+      Register New
+    </button>
   </div>
   <div class="card">
     <table>
@@ -311,9 +347,7 @@
   </div>
 </div>
 
-<!-- ──────────────────────────────────────── -->
-<!--  PAGE: REGISTER STUDENT                  -->
-<!-- ──────────────────────────────────────── -->
+<!-- REGISTER STUDENT PAGE -->
 <div id="page-register" class="page">
   <div class="section-header">
     <div><div class="section-title">Register Student</div>
@@ -321,81 +355,48 @@
   </div>
   <div class="card">
     <div class="form-grid">
-      <div class="form-group">
-        <label>Full Name *</label>
-        <input type="text" id="reg_name" placeholder="e.g. Aminu Ibrahim Musa"/>
+      <div class="form-group"><label>Full Name *</label><input type="text" id="reg_name" placeholder="e.g. Aminu Ibrahim Musa"/></div>
+      <div class="form-group"><label>Matric Number *</label><input type="text" id="reg_matric" placeholder="e.g. ABU/ENG/2021/001"/></div>
+      <div class="form-group"><label>Date of Birth</label><input type="date" id="reg_dob"/></div>
+      <div class="form-group"><label>Gender</label>
+        <select id="reg_gender"><option value="">Select gender</option><option>Male</option><option>Female</option><option>Other</option></select>
       </div>
-      <div class="form-group">
-        <label>Matric Number *</label>
-        <input type="text" id="reg_matric" placeholder="e.g. ABU/ENG/2021/001"/>
+      <div class="form-group"><label>Department *</label><input type="text" id="reg_dept" placeholder="e.g. Computer Engineering"/></div>
+      <div class="form-group"><label>Faculty</label><input type="text" id="reg_faculty" placeholder="e.g. Engineering"/></div>
+      <div class="form-group"><label>Level</label>
+        <select id="reg_level"><option value="">Select level</option><option>100L</option><option>200L</option><option>300L</option><option>400L</option><option>500L</option><option>600L</option><option>Postgraduate</option></select>
       </div>
-      <div class="form-group">
-        <label>Date of Birth</label>
-        <input type="date" id="reg_dob"/>
+      <div class="form-group"><label>Blood Group</label>
+        <select id="reg_bloodgroup"><option value="">Select blood group</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
       </div>
-      <div class="form-group">
-        <label>Gender</label>
-        <select id="reg_gender">
-          <option value="">Select gender</option>
-          <option>Male</option><option>Female</option><option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Department *</label>
-        <input type="text" id="reg_dept" placeholder="e.g. Computer Engineering"/>
-      </div>
-      <div class="form-group">
-        <label>Faculty</label>
-        <input type="text" id="reg_faculty" placeholder="e.g. Engineering"/>
-      </div>
-      <div class="form-group">
-        <label>Level</label>
-        <select id="reg_level">
-          <option value="">Select level</option>
-          <option>100L</option><option>200L</option><option>300L</option>
-          <option>400L</option><option>500L</option><option>600L</option>
-          <option>Postgraduate</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Blood Group</label>
-        <select id="reg_bloodgroup">
-          <option value="">Select blood group</option>
-          <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
-          <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Phone Number *</label>
-        <input type="tel" id="reg_phone" placeholder="e.g. 08012345678"/>
-      </div>
-      <div class="form-group">
-        <label>Emergency Contact Phone</label>
-        <input type="tel" id="reg_emergency" placeholder="Guardian/Parent phone"/>
-      </div>
-      <div class="form-group">
-        <label>Device ID (Wristwatch)</label>
-        <input type="text" id="reg_device" placeholder="e.g. WW-001"/>
-      </div>
-      <div class="form-group">
-        <label>Known Allergies / Conditions</label>
-        <input type="text" id="reg_conditions" placeholder="e.g. Asthma, Diabetes"/>
-      </div>
+      <div class="form-group"><label>Phone Number *</label><input type="tel" id="reg_phone" placeholder="e.g. 08012345678"/></div>
+      <div class="form-group"><label>Emergency Contact Phone</label><input type="tel" id="reg_emergency" placeholder="Guardian/Parent phone"/></div>
+      <div class="form-group"><label>Device ID (Wristwatch)</label><input type="text" id="reg_device" placeholder="e.g. WW-001"/></div>
+      <div class="form-group"><label>Known Allergies / Conditions</label><input type="text" id="reg_conditions" placeholder="e.g. Asthma, Diabetes"/></div>
     </div>
     <div class="form-group mt" style="grid-column:1/-1">
       <label>Medical Notes</label>
       <textarea id="reg_notes" rows="3" placeholder="Additional health notes..."></textarea>
     </div>
     <div class="gap-row mt">
-      <button class="btn btn-success" onclick="registerStudent()">✅ Register Student</button>
-      <button class="btn" style="background:#1e2d45;color:white" onclick="clearRegForm()">Clear</button>
+      <button class="btn btn-success" onclick="registerStudent()">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        Register Student
+      </button>
+      <button class="btn" style="background:#1e2d45;color:white" onclick="clearRegForm()">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10"/>
+          <path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
+        </svg>
+        Clear
+      </button>
     </div>
   </div>
 </div>
 
-<!-- ──────────────────────────────────────── -->
-<!--  PAGE: VITAL HISTORY                     -->
-<!-- ──────────────────────────────────────── -->
+<!-- VITAL HISTORY PAGE -->
 <div id="page-history" class="page">
   <div class="section-header">
     <div><div class="section-title">Vital Signs History</div>
@@ -404,10 +405,7 @@
   <div class="card">
     <table>
       <thead>
-        <tr>
-          <th>#</th><th>Time</th><th>Student</th><th>Device</th>
-          <th>HR (BPM)</th><th>Temp (°C)</th><th>SBP</th><th>DBP</th><th>Status</th>
-        </tr>
+        <tr><th>#</th><th>Time</th><th>Student</th><th>Device</th><th>HR (BPM)</th><th>Temp (°C)</th><th>SBP</th><th>DBP</th><th>Status</th></tr>
       </thead>
       <tbody id="historyTable">
         <tr><td colspan="9" style="text-align:center;color:var(--sub);padding:30px">Awaiting data from devices...</td></tr>
@@ -416,14 +414,18 @@
   </div>
 </div>
 
-<!-- ──────────────────────────────────────── -->
-<!--  PAGE: ALERTS                            -->
-<!-- ──────────────────────────────────────── -->
+<!-- ALERTS PAGE -->
 <div id="page-alerts" class="page">
   <div class="section-header">
     <div><div class="section-title">Alert Notifications</div>
     <div class="sub-text">Critical vital signs events requiring immediate attention</div></div>
-    <button class="btn" style="background:#1e2d45;color:white" onclick="clearAlerts()">Clear All</button>
+    <button class="btn" style="background:#1e2d45;color:white" onclick="clearAlerts()">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+        <path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+      </svg>
+      Clear All
+    </button>
   </div>
   <div id="alertsList">
     <div class="empty-state">
@@ -435,9 +437,7 @@
   </div>
 </div>
 
-<!-- ──────────────────────────────────────── -->
-<!--  PAGE: SIMULATION                        -->
-<!-- ──────────────────────────────────────── -->
+<!-- SIMULATION PAGE -->
 <div id="page-simulation" class="page">
   <div class="section-header">
     <div><div class="section-title">Proteus Simulation Interface</div>
@@ -447,46 +447,60 @@
     <div class="card">
       <div class="card-title">Inject Simulated Vital Reading</div>
       <div class="form-grid">
-        <div class="form-group">
-          <label>Device ID</label>
-          <input type="text" id="sim_device" value="WW-001"/>
-        </div>
-        <div class="form-group">
-          <label>Student ID</label>
-          <input type="text" id="sim_student" value="ABU/ENG/2021/001"/>
-        </div>
-        <div class="form-group">
-          <label>Heart Rate (BPM)</label>
-          <input type="number" id="sim_hr" value="75" min="20" max="250"/>
-        </div>
-        <div class="form-group">
-          <label>Body Temp (°C)</label>
-          <input type="number" id="sim_temp" value="36.5" step="0.1" min="30" max="44"/>
-        </div>
-        <div class="form-group">
-          <label>Systolic BP (mmHg)</label>
-          <input type="number" id="sim_sbp" value="120" min="60" max="200"/>
-        </div>
-        <div class="form-group">
-          <label>Diastolic BP (mmHg)</label>
-          <input type="number" id="sim_dbp" value="80" min="40" max="130"/>
-        </div>
+        <div class="form-group"><label>Device ID</label><input type="text" id="sim_device" value="WW-001"/></div>
+        <div class="form-group"><label>Student ID</label><input type="text" id="sim_student" value="ABU/ENG/2021/001"/></div>
+        <div class="form-group"><label>Heart Rate (BPM)</label><input type="number" id="sim_hr" value="75" min="20" max="250"/></div>
+        <div class="form-group"><label>Body Temp (°C)</label><input type="number" id="sim_temp" value="36.5" step="0.1" min="30" max="44"/></div>
+        <div class="form-group"><label>Systolic BP (mmHg)</label><input type="number" id="sim_sbp" value="120" min="60" max="200"/></div>
+        <div class="form-group"><label>Diastolic BP (mmHg)</label><input type="number" id="sim_dbp" value="80" min="40" max="130"/></div>
       </div>
       <div class="gap-row mt">
-        <button class="btn btn-primary" onclick="injectSimReading()">📡 Send Reading</button>
-        <button class="btn" style="background:#78350f;color:#fde68a" onclick="injectCritical()">🚨 Inject Critical</button>
-        <button class="btn" style="background:#1e2d45;color:white" onclick="startAutoSim()">▶ Auto Simulate</button>
-        <button class="btn" style="background:#1e2d45;color:white" onclick="stopAutoSim()">⏹ Stop</button>
+        <!-- Send Reading -->
+        <button class="btn btn-primary" onclick="injectSimReading()">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          Send Reading
+        </button>
+        <!-- Inject Critical -->
+        <button class="btn" style="background:#78350f;color:#fde68a" onclick="injectCritical()">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke:#fde68a">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          Inject Critical
+        </button>
+        <!-- Auto Simulate -->
+        <button class="btn" style="background:#1e2d45;color:white" onclick="startAutoSim()">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          Auto Simulate
+        </button>
+        <!-- Stop -->
+        <button class="btn" style="background:#1e2d45;color:white" onclick="stopAutoSim()">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+          </svg>
+          Stop
+        </button>
       </div>
     </div>
     <div class="card">
       <div class="card-title">Simulation Log</div>
-      <div id="simLog" style="height:280px;overflow-y:auto;background:#050c14;border-radius:8px;
-        border:1px solid var(--border);padding:12px;font-family:monospace;font-size:.78rem;color:#7dd3fc"></div>
+      <div id="simLog" style="height:280px;overflow-y:auto;background:#050c14;border-radius:8px;border:1px solid var(--border);padding:12px;font-family:monospace;font-size:.78rem;color:#7dd3fc"></div>
     </div>
   </div>
   <div class="card mt">
-    <div class="card-title">📡 API Endpoints (for Arduino / Proteus Serial Bridge)</div>
+    <div class="card-title">
+      <span style="display:inline-flex;align-items:center;gap:6px">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
+        </svg>
+        API Endpoints (for Arduino / Proteus Serial Bridge)
+      </span>
+    </div>
     <table>
       <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Body</th></tr></thead>
       <tbody>
@@ -509,9 +523,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-// ═══════════════════════════════════════════════════════
-//  STATE
-// ═══════════════════════════════════════════════════════
 let patients     = JSON.parse(localStorage.getItem('abu_patients')    || '[]');
 let vitalsLog    = JSON.parse(localStorage.getItem('abu_vitals')      || '[]');
 let alertsLog    = JSON.parse(localStorage.getItem('abu_alerts')      || '[]');
@@ -521,9 +532,6 @@ let dbpHistory   = [];
 let autoSimTimer = null;
 let readingCount = 0;
 
-// ═══════════════════════════════════════════════════════
-//  CHARTS
-// ═══════════════════════════════════════════════════════
 const hrCtx  = document.getElementById('hrChart').getContext('2d');
 const bpCtx  = document.getElementById('bpChart').getContext('2d');
 
@@ -560,9 +568,6 @@ function pushChart(chart, value, extra=null) {
   chart.update('none');
 }
 
-// ═══════════════════════════════════════════════════════
-//  NAVIGATION
-// ═══════════════════════════════════════════════════════
 function showPage(name, el) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -576,38 +581,29 @@ function showPage(name, el) {
   if (name==='alerts')   renderAlertsList();
 }
 
-// ═══════════════════════════════════════════════════════
-//  VITAL PROCESSING
-// ═══════════════════════════════════════════════════════
 function processVitals(data) {
-  const { device_id, student_id, heart_rate, body_temp, systolic, diastolic, is_critical, timestamp } = data;
+  const { device_id, student_id, heart_rate, body_temp, systolic, diastolic, is_critical } = data;
   const timeStr = new Date().toLocaleTimeString();
 
-  // Update stat cards
   document.getElementById('hrVal').textContent   = heart_rate  || '--';
   document.getElementById('tempVal').textContent = body_temp   ? body_temp.toFixed(1) : '--';
   document.getElementById('sbpVal').textContent  = systolic    || '--';
   document.getElementById('dbpVal').textContent  = diastolic   || '--';
 
-  // Badges
   setBadge('hrBadge',   heart_rate, 50, 110);
   setBadge('tempBadge', body_temp,  35, 38.5);
   setBadge('sbpBadge',  systolic,   90, 140);
   setBadge('dbpBadge',  diastolic,  60, 90);
 
-  // Progress bars
   setProgress('hrProg',   heart_rate, 50, 110);
   setProgress('tempProg', body_temp,  35, 38.5);
   setProgress('sbpProg',  systolic,   90, 140);
 
-  // Charts
   pushChart(hrChart, heart_rate);
   pushChart(bpChart, systolic, diastolic);
 
-  // Critical alert
   if (is_critical) triggerAlert(data);
 
-  // Log to history
   readingCount++;
   const entry = { id:readingCount, time:timeStr, device_id, student_id,
     heart_rate, body_temp, systolic, diastolic, is_critical };
@@ -615,25 +611,18 @@ function processVitals(data) {
   if (vitalsLog.length > 200) vitalsLog.pop();
   localStorage.setItem('abu_vitals', JSON.stringify(vitalsLog));
 
-  // Update patient's last reading
   const pt = patients.find(p => p.matric === student_id || p.device === device_id);
   if (pt) {
-    pt.last_hr   = heart_rate;
-    pt.last_temp = body_temp;
-    pt.last_sbp  = systolic;
-    pt.last_dbp  = diastolic;
-    pt.last_seen = timeStr;
-    pt.critical  = is_critical;
+    pt.last_hr=heart_rate; pt.last_temp=body_temp;
+    pt.last_sbp=systolic; pt.last_dbp=diastolic;
+    pt.last_seen=timeStr; pt.critical=is_critical;
     localStorage.setItem('abu_patients', JSON.stringify(patients));
   }
 
-  // Active patient card
   renderActivePatient(pt, data);
-
-  // RT log
   addLog(is_critical
-    ? `⚠ [${timeStr}] CRITICAL — ${student_id} | HR:${heart_rate} Tmp:${body_temp} BP:${systolic}/${diastolic}`
-    : `✓ [${timeStr}] ${student_id} | HR:${heart_rate}bpm | ${body_temp}°C | BP:${systolic}/${diastolic}`,
+    ? `[${timeStr}] CRITICAL — ${student_id} | HR:${heart_rate} Tmp:${body_temp} BP:${systolic}/${diastolic}`
+    : `[${timeStr}] ${student_id} | HR:${heart_rate}bpm | ${body_temp}°C | BP:${systolic}/${diastolic}`,
     is_critical ? 'log-crit' : 'log-ok');
 }
 
@@ -652,24 +641,17 @@ function setProgress(id, val, lo, hi) {
   el.style.width = pct + '%';
 }
 
-// ═══════════════════════════════════════════════════════
-//  ALERT SYSTEM
-// ═══════════════════════════════════════════════════════
 function triggerAlert(data) {
   const timeStr = new Date().toLocaleTimeString();
   const pt = patients.find(p => p.matric===data.student_id || p.device===data.device_id);
   const name = pt ? pt.name : data.student_id;
 
-  // Banner
   const banner = document.getElementById('alertBanner');
   banner.classList.remove('hidden');
   banner.style.display = 'flex';
-  document.getElementById('alertTitle').textContent =
-    `🚨 CRITICAL: ${name} (${data.device_id})`;
-  document.getElementById('alertDetail').textContent =
-    `HR: ${data.heart_rate}bpm | Temp: ${data.body_temp}°C | BP: ${data.systolic}/${data.diastolic} mmHg`;
+  document.getElementById('alertTitle').textContent = `CRITICAL: ${name} (${data.device_id})`;
+  document.getElementById('alertDetail').textContent = `HR: ${data.heart_rate}bpm | Temp: ${data.body_temp}°C | BP: ${data.systolic}/${data.diastolic} mmHg`;
 
-  // Alert log
   const alert = { time:timeStr, name, device:data.device_id, student_id:data.student_id,
     hr:data.heart_rate, temp:data.body_temp, sbp:data.systolic, dbp:data.diastolic,
     phone: pt ? pt.phone : 'Unknown' };
@@ -677,122 +659,90 @@ function triggerAlert(data) {
   localStorage.setItem('abu_alerts', JSON.stringify(alertsLog));
   document.getElementById('alertCount').textContent = alertsLog.length;
 
-  // Notification
   sendBrowserNotification(name, data);
-  showToast(`🚨 CRITICAL ALERT: ${name}`);
-  addLog(`🚨 ALERT SENT for ${name} — Phone: ${alert.phone}`, 'log-crit');
+  showToast(`CRITICAL ALERT: ${name}`);
+  addLog(`ALERT SENT for ${name} — Phone: ${alert.phone}`, 'log-crit');
 
-  // SMS simulation log
-  if (pt && pt.phone) {
-    addLog(`📱 SMS → ${pt.phone}: "CRITICAL: ${name} vitals abnormal. ABU Sick Bay alerted."`, 'log-warn');
-  }
-  if (pt && pt.emergency) {
-    addLog(`📱 SMS → ${pt.emergency} (Guardian): "URGENT: ${name} has abnormal vital signs."`, 'log-warn');
-  }
+  if (pt && pt.phone) addLog(`SMS → ${pt.phone}: "CRITICAL: ${name} vitals abnormal. ABU Sick Bay alerted."`, 'log-warn');
+  if (pt && pt.emergency) addLog(`SMS → ${pt.emergency} (Guardian): "URGENT: ${name} has abnormal vital signs."`, 'log-warn');
 }
 
 function sendBrowserNotification(name, data) {
   if (!('Notification' in window)) return;
   if (Notification.permission === 'granted') {
-    new Notification(`🚨 ABU Sick Bay ALERT`, {
-      body: `${name}: HR ${data.heart_rate}bpm, Temp ${data.body_temp}°C, BP ${data.systolic}/${data.diastolic}`,
-      icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><text y="20" font-size="20">❤</text></svg>'
+    new Notification(`ABU Sick Bay ALERT`, {
+      body: `${name}: HR ${data.heart_rate}bpm, Temp ${data.body_temp}°C, BP ${data.systolic}/${data.diastolic}`
     });
   } else if (Notification.permission !== 'denied') {
-    Notification.requestPermission().then(perm => {
-      if (perm === 'granted') sendBrowserNotification(name, data);
-    });
+    Notification.requestPermission().then(perm => { if (perm==='granted') sendBrowserNotification(name,data); });
   }
 }
 
 function dismissAlert() {
   const b = document.getElementById('alertBanner');
-  b.style.display = 'none'; b.classList.add('hidden');
+  b.style.display='none'; b.classList.add('hidden');
 }
 
 function clearAlerts() {
-  alertsLog = [];
-  localStorage.setItem('abu_alerts', '[]');
-  document.getElementById('alertCount').textContent = '0';
+  alertsLog=[];
+  localStorage.setItem('abu_alerts','[]');
+  document.getElementById('alertCount').textContent='0';
   renderAlertsList();
 }
 
-// ═══════════════════════════════════════════════════════
-//  REGISTER STUDENT
-// ═══════════════════════════════════════════════════════
 function registerStudent() {
-  const name   = document.getElementById('reg_name').value.trim();
-  const matric = document.getElementById('reg_matric').value.trim();
-  const phone  = document.getElementById('reg_phone').value.trim();
-  if (!name || !matric || !phone) { showToast('Fill required fields (Name, Matric, Phone)'); return; }
+  const name=document.getElementById('reg_name').value.trim();
+  const matric=document.getElementById('reg_matric').value.trim();
+  const phone=document.getElementById('reg_phone').value.trim();
+  if (!name||!matric||!phone){showToast('Fill required fields (Name, Matric, Phone)');return;}
 
-  const student = {
-    id: Date.now(),
-    name, matric,
-    dob:        document.getElementById('reg_dob').value,
-    gender:     document.getElementById('reg_gender').value,
-    dept:       document.getElementById('reg_dept').value,
-    faculty:    document.getElementById('reg_faculty').value,
-    level:      document.getElementById('reg_level').value,
-    bloodgroup: document.getElementById('reg_bloodgroup').value,
+  const student={
+    id:Date.now(), name, matric,
+    dob:document.getElementById('reg_dob').value,
+    gender:document.getElementById('reg_gender').value,
+    dept:document.getElementById('reg_dept').value,
+    faculty:document.getElementById('reg_faculty').value,
+    level:document.getElementById('reg_level').value,
+    bloodgroup:document.getElementById('reg_bloodgroup').value,
     phone,
-    emergency:  document.getElementById('reg_emergency').value,
-    device:     document.getElementById('reg_device').value,
-    conditions: document.getElementById('reg_conditions').value,
-    notes:      document.getElementById('reg_notes').value,
-    registered: new Date().toLocaleDateString(),
-    last_hr: '--', last_temp: '--', last_sbp: '--', last_dbp: '--',
-    last_seen: 'Never', critical: false
+    emergency:document.getElementById('reg_emergency').value,
+    device:document.getElementById('reg_device').value,
+    conditions:document.getElementById('reg_conditions').value,
+    notes:document.getElementById('reg_notes').value,
+    registered:new Date().toLocaleDateString(),
+    last_hr:'--',last_temp:'--',last_sbp:'--',last_dbp:'--',
+    last_seen:'Never',critical:false
   };
-
   patients.push(student);
-  localStorage.setItem('abu_patients', JSON.stringify(patients));
-  showToast(`✅ ${name} registered successfully`);
-  addLog(`✅ New student registered: ${name} (${matric}) — Device: ${student.device || 'Unassigned'}`, 'log-ok');
+  localStorage.setItem('abu_patients',JSON.stringify(patients));
+  showToast(`${name} registered successfully`);
+  addLog(`New student registered: ${name} (${matric}) — Device: ${student.device||'Unassigned'}`, 'log-ok');
   clearRegForm();
 }
 
 function clearRegForm() {
-  ['reg_name','reg_matric','reg_dob','reg_dept','reg_faculty','reg_phone',
-   'reg_emergency','reg_device','reg_conditions','reg_notes'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
-  });
-  ['reg_gender','reg_level','reg_bloodgroup'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.selectedIndex = 0;
-  });
+  ['reg_name','reg_matric','reg_dob','reg_dept','reg_faculty','reg_phone','reg_emergency','reg_device','reg_conditions','reg_notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['reg_gender','reg_level','reg_bloodgroup'].forEach(id=>{const el=document.getElementById(id);if(el)el.selectedIndex=0;});
 }
 
-// ═══════════════════════════════════════════════════════
-//  RENDER FUNCTIONS
-// ═══════════════════════════════════════════════════════
 function renderPatientTable() {
-  const tb = document.getElementById('patientTable');
-  if (!patients.length) {
-    tb.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--sub);padding:30px">No patients registered yet</td></tr>';
-    return;
-  }
-  tb.innerHTML = patients.map(p => `
-    <tr class="${p.critical ? 'crit-row' : ''}">
+  const tb=document.getElementById('patientTable');
+  if(!patients.length){tb.innerHTML='<tr><td colspan="8" style="text-align:center;color:var(--sub);padding:30px">No patients registered yet</td></tr>';return;}
+  tb.innerHTML=patients.map(p=>`
+    <tr class="${p.critical?'crit-row':''}">
       <td><div style="font-weight:600">${p.name}</div><div style="font-size:.75rem;color:var(--sub)">${p.level||''} ${p.dept||''}</div></td>
       <td><span style="font-family:monospace;font-size:.8rem">${p.matric}</span></td>
-      <td>${p.dept||'—'}</td>
-      <td>${p.phone}</td>
-      <td>${p.last_hr||'—'}</td>
-      <td>${p.last_temp||'—'}</td>
+      <td>${p.dept||'—'}</td><td>${p.phone}</td>
+      <td>${p.last_hr||'—'}</td><td>${p.last_temp||'—'}</td>
       <td>${p.last_sbp&&p.last_dbp&&p.last_sbp!=='--'?p.last_sbp+'/'+p.last_dbp:'—'}</td>
       <td><span class="badge ${p.critical?'badge-critical':'badge-normal'}">${p.critical?'Critical':'Normal'}</span></td>
     </tr>`).join('');
 }
 
 function renderHistoryTable() {
-  const tb = document.getElementById('historyTable');
-  if (!vitalsLog.length) {
-    tb.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--sub);padding:30px">No data received yet</td></tr>';
-    return;
-  }
-  tb.innerHTML = vitalsLog.slice(0,100).map(v => `
+  const tb=document.getElementById('historyTable');
+  if(!vitalsLog.length){tb.innerHTML='<tr><td colspan="9" style="text-align:center;color:var(--sub);padding:30px">No data received yet</td></tr>';return;}
+  tb.innerHTML=vitalsLog.slice(0,100).map(v=>`
     <tr class="${v.is_critical?'crit-row':''}">
       <td style="color:var(--sub);font-size:.78rem">${v.id}</td>
       <td style="font-size:.8rem">${v.time}</td>
@@ -800,156 +750,134 @@ function renderHistoryTable() {
       <td><span class="tag">${v.device_id}</span></td>
       <td>${v.heart_rate}</td>
       <td>${typeof v.body_temp==='number'?v.body_temp.toFixed(1):v.body_temp}</td>
-      <td>${v.systolic}</td>
-      <td>${v.diastolic}</td>
+      <td>${v.systolic}</td><td>${v.diastolic}</td>
       <td><span class="badge ${v.is_critical?'badge-critical':'badge-normal'}">${v.is_critical?'Critical':'Normal'}</span></td>
     </tr>`).join('');
 }
 
 function renderAlertsList() {
-  const el = document.getElementById('alertsList');
-  if (!alertsLog.length) {
-    el.innerHTML = `<div class="empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><p>No alerts yet — all vitals normal</p></div>`;
+  const el=document.getElementById('alertsList');
+  if(!alertsLog.length){
+    el.innerHTML=`<div class="empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><p>No alerts yet — all vitals normal</p></div>`;
     return;
   }
-  el.innerHTML = alertsLog.map(a => `
+  el.innerHTML=alertsLog.map(a=>`
     <div style="background:#1a0f0f;border:1px solid #7c2d12;border-radius:10px;padding:16px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start">
-      <div style="font-size:1.6rem">🚨</div>
+      <div>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </div>
       <div style="flex:1">
         <div style="font-weight:700;color:#fca5a5">${a.name} — ${a.device}</div>
         <div style="font-size:.82rem;color:var(--sub);margin:4px 0">${a.time} · Matric: ${a.student_id}</div>
         <div style="font-size:.85rem">HR: <b>${a.hr}</b> BPM · Temp: <b>${a.temp}°C</b> · BP: <b>${a.sbp}/${a.dbp}</b> mmHg</div>
-        <div style="font-size:.78rem;color:#f97316;margin-top:4px">📱 SMS sent to: ${a.phone}</div>
+        <div style="font-size:.78rem;color:#f97316;margin-top:4px">SMS sent to: ${a.phone}</div>
       </div>
     </div>`).join('');
 }
 
 function renderActivePatient(pt, data) {
-  const el = document.getElementById('activePatientCard');
-  if (!pt) {
-    el.innerHTML = `<div style="font-size:.85rem;color:var(--sub)">Device <b>${data.device_id}</b> is transmitting — no matching registered student found.</div>`;
-    return;
-  }
-  const initials = pt.name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
-  el.innerHTML = `
+  const el=document.getElementById('activePatientCard');
+  if(!pt){el.innerHTML=`<div style="font-size:.85rem;color:var(--sub)">Device <b>${data.device_id}</b> is transmitting — no matching registered student found.</div>`;return;}
+  const initials=pt.name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  el.innerHTML=`
     <div class="patient-card">
       <div class="avatar">${initials}</div>
       <div class="patient-info">
         <div class="name">${pt.name}</div>
         <div class="meta">${pt.level||''} · ${pt.dept||''}</div>
-        <div class="meta">📱 ${pt.phone}</div>
-        <div class="meta">🩸 ${pt.bloodgroup||'Unknown'} · ${pt.gender||''}</div>
+        <div class="meta">${pt.phone}</div>
+        <div class="meta">${pt.bloodgroup||'Unknown'} · ${pt.gender||''}</div>
         <div class="id-tag">${pt.matric}</div>
       </div>
     </div>`;
 }
 
-// ═══════════════════════════════════════════════════════
-//  SIMULATION
-// ═══════════════════════════════════════════════════════
 function injectSimReading(overrideData=null) {
-  const data = overrideData || {
-    device_id:  document.getElementById('sim_device').value || 'WW-001',
-    student_id: document.getElementById('sim_student').value || 'ABU/ENG/2021/001',
-    heart_rate: parseFloat(document.getElementById('sim_hr').value),
-    body_temp:  parseFloat(document.getElementById('sim_temp').value),
-    systolic:   parseFloat(document.getElementById('sim_sbp').value),
-    diastolic:  parseFloat(document.getElementById('sim_dbp').value),
-    is_critical: false,
-    timestamp:  Date.now()
+  const data=overrideData||{
+    device_id:document.getElementById('sim_device').value||'WW-001',
+    student_id:document.getElementById('sim_student').value||'ABU/ENG/2021/001',
+    heart_rate:parseFloat(document.getElementById('sim_hr').value),
+    body_temp:parseFloat(document.getElementById('sim_temp').value),
+    systolic:parseFloat(document.getElementById('sim_sbp').value),
+    diastolic:parseFloat(document.getElementById('sim_dbp').value),
+    is_critical:false,timestamp:Date.now()
   };
-  data.is_critical = (data.heart_rate<50||data.heart_rate>110||data.body_temp<35||data.body_temp>38.5||data.systolic>140||data.systolic<90||data.diastolic>90||data.diastolic<60);
-
+  data.is_critical=(data.heart_rate<50||data.heart_rate>110||data.body_temp<35||data.body_temp>38.5||data.systolic>140||data.systolic<90||data.diastolic>90||data.diastolic<60);
   processVitals(data);
-  simLog(`→ POST /api/vitals | ${JSON.stringify(data)}`, data.is_critical ? 'log-crit' : 'log-ok');
-  showToast('📡 Reading injected');
+  simLog(`→ POST /api/vitals | ${JSON.stringify(data)}`,data.is_critical?'log-crit':'log-ok');
+  showToast('Reading injected');
 }
 
 function injectCritical() {
   injectSimReading({
-    device_id:'WW-001', student_id: document.getElementById('sim_student').value || 'ABU/ENG/2021/001',
-    heart_rate:135, body_temp:39.8, systolic:155, diastolic:100,
-    is_critical:true, timestamp:Date.now()
+    device_id:'WW-001',student_id:document.getElementById('sim_student').value||'ABU/ENG/2021/001',
+    heart_rate:135,body_temp:39.8,systolic:155,diastolic:100,is_critical:true,timestamp:Date.now()
   });
 }
 
-let autoSimInterval = null;
+let autoSimInterval=null;
 function startAutoSim() {
-  if (autoSimInterval) return;
-  simLog('▶ Auto-simulation started (every 5 s)', 'log-info');
-  autoSimInterval = setInterval(() => {
-    const hr   = 60 + Math.floor(Math.random()*50);
-    const temp = 36 + Math.random()*2;
-    const sbp  = 100 + Math.floor(Math.random()*50);
-    const dbp  = 60  + Math.floor(Math.random()*30);
+  if(autoSimInterval)return;
+  simLog('Auto-simulation started (every 5 s)','log-info');
+  autoSimInterval=setInterval(()=>{
+    const hr=60+Math.floor(Math.random()*50);
+    const temp=36+Math.random()*2;
+    const sbp=100+Math.floor(Math.random()*50);
+    const dbp=60+Math.floor(Math.random()*30);
     injectSimReading({
-      device_id: document.getElementById('sim_device').value || 'WW-001',
-      student_id: document.getElementById('sim_student').value || 'ABU/ENG/2021/001',
-      heart_rate: hr, body_temp: parseFloat(temp.toFixed(1)),
-      systolic: sbp, diastolic: dbp, is_critical: false, timestamp: Date.now()
+      device_id:document.getElementById('sim_device').value||'WW-001',
+      student_id:document.getElementById('sim_student').value||'ABU/ENG/2021/001',
+      heart_rate:hr,body_temp:parseFloat(temp.toFixed(1)),
+      systolic:sbp,diastolic:dbp,is_critical:false,timestamp:Date.now()
     });
-  }, 5000);
+  },5000);
 }
 
 function stopAutoSim() {
-  if (autoSimInterval) { clearInterval(autoSimInterval); autoSimInterval = null; }
-  simLog('⏹ Auto-simulation stopped', 'log-info');
+  if(autoSimInterval){clearInterval(autoSimInterval);autoSimInterval=null;}
+  simLog('Auto-simulation stopped','log-info');
 }
 
-function simLog(msg, cls='log-info') {
-  const el = document.getElementById('simLog');
-  const t  = new Date().toLocaleTimeString();
-  el.innerHTML += `<p class="${cls}">[${t}] ${msg}</p>`;
-  el.scrollTop  = el.scrollHeight;
+function simLog(msg,cls='log-info') {
+  const el=document.getElementById('simLog');
+  const t=new Date().toLocaleTimeString();
+  el.innerHTML+=`<p class="${cls}">[${t}] ${msg}</p>`;
+  el.scrollTop=el.scrollHeight;
 }
 
-// ═══════════════════════════════════════════════════════
-//  RT LOG
-// ═══════════════════════════════════════════════════════
-function addLog(msg, cls='log-info') {
-  const el = document.getElementById('rtLog');
-  el.innerHTML += `<p class="${cls}">${msg}</p>`;
-  if (el.children.length > 80) el.removeChild(el.firstChild);
-  el.scrollTop = el.scrollHeight;
+function addLog(msg,cls='log-info') {
+  const el=document.getElementById('rtLog');
+  el.innerHTML+=`<p class="${cls}">${msg}</p>`;
+  if(el.children.length>80)el.removeChild(el.firstChild);
+  el.scrollTop=el.scrollHeight;
 }
 
-// ═══════════════════════════════════════════════════════
-//  TOAST
-// ═══════════════════════════════════════════════════════
 function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
 }
 
-// ═══════════════════════════════════════════════════════
-//  CLOCK
-// ═══════════════════════════════════════════════════════
 function updateClock() {
-  document.getElementById('clockDisplay').textContent =
-    new Date().toLocaleTimeString('en-GB',{hour12:false});
+  document.getElementById('clockDisplay').textContent=new Date().toLocaleTimeString('en-GB',{hour12:false});
 }
-setInterval(updateClock, 1000);
+setInterval(updateClock,1000);
 updateClock();
 
-// ═══════════════════════════════════════════════════════
-//  INIT
-// ═══════════════════════════════════════════════════════
 (function init() {
-  document.getElementById('alertCount').textContent = alertsLog.length;
-  // Request notification permission
-  if ('Notification' in window && Notification.permission === 'default') {
-    Notification.requestPermission();
-  }
-  addLog('🟢 ABU Sick Bay Monitoring System started', 'log-ok');
-  addLog('⏳ Waiting for device data...', 'log-info');
-  // Restore last reading from vitals log if any
-  if (vitalsLog.length) {
-    const last = vitalsLog[0];
-    document.getElementById('hrVal').textContent   = last.heart_rate;
-    document.getElementById('tempVal').textContent = last.body_temp?.toFixed?.(1) || last.body_temp;
-    document.getElementById('sbpVal').textContent  = last.systolic;
-    document.getElementById('dbpVal').textContent  = last.diastolic;
+  document.getElementById('alertCount').textContent=alertsLog.length;
+  if('Notification' in window && Notification.permission==='default') Notification.requestPermission();
+  addLog('ABU Sick Bay Monitoring System started','log-ok');
+  addLog('Waiting for device data...','log-info');
+  if(vitalsLog.length){
+    const last=vitalsLog[0];
+    document.getElementById('hrVal').textContent=last.heart_rate;
+    document.getElementById('tempVal').textContent=last.body_temp?.toFixed?.(1)||last.body_temp;
+    document.getElementById('sbpVal').textContent=last.systolic;
+    document.getElementById('dbpVal').textContent=last.diastolic;
   }
 })();
 </script>
