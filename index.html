@@ -593,12 +593,12 @@ function processVitals(data) {
 
   setBadge('hrBadge',   heart_rate, 50, 110);
   setBadge('tempBadge', body_temp,  35, 38.5);
-  setBadge('sbpBadge',  systolic,   90, 80);
+  setBadge('sbpBadge',  systolic,   90, 140);
   setBadge('dbpBadge',  diastolic,  60, 90);
 
   setProgress('hrProg',   heart_rate, 50, 110);
   setProgress('tempProg', body_temp,  35, 38.5);
-  setProgress('sbpProg',  systolic,   90, 100);
+  setProgress('sbpProg',  systolic,   90, 140);
 
   pushChart(hrChart, heart_rate);
   pushChart(bpChart, systolic, diastolic);
